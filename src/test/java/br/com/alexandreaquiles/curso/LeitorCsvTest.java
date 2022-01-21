@@ -12,6 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LeitorCsvTest {
 
+    /*
+        TODO
+        criar teste do atributo quando a classe não é suportada
+        criar teste com record
+        duas versões do le: recebe string do arquivo e uma que recebe um InputStream
+     */
+
     @Test
     void le__deve_extrair_cursos_corretamente() {
         var leitorCsv = new LeitorCsv();
@@ -21,11 +28,20 @@ class LeitorCsvTest {
 
         assertEquals(3, cursos.size());
 
-        assertEquals(Curso.class, cursos.get(0).getClass());
-        assertEquals("Redes avançado", cursos.get(0).getNome());
+        Curso primeiroCurso = cursos.get(0);
+        assertEquals(Curso.class, primeiroCurso.getClass());
+        assertEquals("Redes avançado", primeiroCurso.getNome());
+        assertEquals(6, primeiroCurso.getCargaHoraria());
 
-        assertEquals(Curso.class, cursos.get(1).getClass());
-        assertEquals(Curso.class, cursos.get(2).getClass());
+        Curso segundoCurso = cursos.get(1);
+        assertEquals(Curso.class, segundoCurso.getClass());
+        assertEquals("Java e OO", segundoCurso.getNome());
+        assertEquals(8, segundoCurso.getCargaHoraria());
+
+        Curso terceiroCurso = cursos.get(2);
+        assertEquals(Curso.class, terceiroCurso.getClass());
+        assertEquals("Python básico", terceiroCurso.getNome());
+        assertEquals(6, terceiroCurso.getCargaHoraria());
     }
 
     @Test

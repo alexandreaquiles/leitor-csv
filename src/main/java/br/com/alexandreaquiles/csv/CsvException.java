@@ -4,4 +4,8 @@ public class CsvException extends RuntimeException {
    CsvException(String mensagem, Throwable ex) {
         super(mensagem, ex);
    }
+
+    public CsvException(String mensagem) {
+        super(mensagem);
+    }
 }
